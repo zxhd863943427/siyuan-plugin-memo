@@ -70,6 +70,9 @@ export default class PluginMemo extends Plugin {
 }
 
 function addMemoItem(protyle:IProtyle){
+    if (protyle.toolbar.element.querySelector(`[data-type="memo"]`)){
+        return
+    }
     const memoElement  = document.createElement("button");
     memoElement.setAttribute("class","protyle-toolbar__item b3-tooltips b3-tooltips__n")
     memoElement.setAttribute("data-type","memo")
