@@ -80,7 +80,6 @@ export default class PluginMemo extends Plugin {
 
     private memoMain({ detail }: any) {
         let protyle:IProtyle = detail
-        window.protyle = protyle
         console.log(protyle)
         addMemoItem(protyle)
     }
