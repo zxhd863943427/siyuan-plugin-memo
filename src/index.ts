@@ -89,6 +89,7 @@ async function addMemoBlock(protyle:IProtyle){
     let newBlockId = back[0].doOperations[0].id
     let pureContent = protyle.toolbar.range.toString()
     const {x,y} = protyle.toolbar.range.getClientRects()[0]
+    protyle.toolbar.setInlineMark(protyle, "clear", "toolbar");
     protyle.toolbar.setInlineMark(protyle, "block-ref", "range", {
         type: "id",
         color:`${newBlockId+zeroWhite+"s"+zeroWhite+pureContent}`
