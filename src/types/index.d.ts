@@ -67,3 +67,43 @@ type doOperation = {
     previousID: BlockId;
     retData: null;
 }
+
+interface IProtyle {
+    getInstance: () => any,
+    app: any,
+    transactionTime: number,
+    id: string,
+    block: {
+        id?: string,
+        scroll?: boolean
+        parentID?: string,
+        parent2ID?: string,
+        rootID?: string,
+        showAll?: boolean
+        mode?: number
+        blockCount?: number
+        action?: string[]
+    },
+    disabled: boolean,
+    selectElement?: HTMLElement,
+    ws?: any,
+    notebookId?: string
+    path?: string
+    model?: any,
+    updated: boolean;
+    element: HTMLElement;
+    scroll?: any,
+    gutter?: any,
+    breadcrumb?: any,
+    title?: any,
+    background?: any,
+    contentElement?: HTMLElement,
+    options: IOptions;
+    lute?: Lute;
+    toolbar?: any,
+    preview?: any,
+    hint?: any,
+    upload?: any,
+    undo?: any,
+    wysiwyg?: any
+}
