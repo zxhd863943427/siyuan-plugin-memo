@@ -1,34 +1,21 @@
 import {
     Plugin,
     showMessage,
-    confirm,
     Dialog,
-    Menu,
-    openTab,
-    adaptHotkey,
     getFrontend,
-    getBackend,
-    IModel,
-    Setting,
-    fetchPost,
-    Protyle,
-    IProtyleOption
+    getBackend
 } from "siyuan";
 import "@/index.scss";
 
-import HelloExample from "@/hello.svelte";
 import SettingPannel from "@/libs/setting-panel.svelte";
-import { appendBlock, setBlockAttrs } from "./api";
+import { appendBlock } from "./api";
 
 const STORAGE_NAME = "menu-config";
-const TAB_TYPE = "custom_tab";
-const DOCK_TYPE = "dock_tab";
 const zeroWhite = "​"
 
 let addFloatLayer
 export default class PluginMemo extends Plugin {
 
-    private customTab: () => IModel;
     private isMobile: boolean;
 
     async onload() {
@@ -74,9 +61,6 @@ export default class PluginMemo extends Plugin {
         });
     }
 
-    private eventBusLog({ detail }: any) {
-        console.log(detail);
-    }
 
     private memoMain({ detail }: any) {
         let protyle:IProtyle = detail
