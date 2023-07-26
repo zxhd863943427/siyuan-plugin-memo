@@ -1,4 +1,4 @@
-.protyle-wysiwyg [data-node-id] span[data-type~=block-ref][style*="var(--b3-font-color127)"] {
+.protyle-wysiwyg [data-node-id] span[data-type~=block-ref][style*="--memo"] {
     // color: var(--b3-theme-on-background);
     // border-bottom: 2px solid var(--b3-card-info-color);
     &:after{

@@ -108,7 +108,7 @@ async function addMemoBlock(protyle:IProtyle){
         color:`${newBlockId+zeroWhite+"s"+zeroWhite+pureContent}`
     });
     let memoELement = protyle.element.querySelector(`[data-id="${newBlockId}"]`)
-    memoELement.setAttribute("style","background-color: var(--b3-font-color127);color: var(--b3-theme-on-background);border-bottom: 2px solid var(--b3-card-info-color);")
+    memoELement.setAttribute("style","--memo: 1;color: var(--b3-theme-on-background);border-bottom: 2px solid var(--b3-card-info-color);")
     protyle.toolbar.element.classList.add("fn__none")
     saveViaTransaction()
     addFloatLayer({
