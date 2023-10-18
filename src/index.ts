@@ -8,7 +8,7 @@ import {
 import "@/index.scss";
 
 import SettingPannel from "@/libs/setting-panel.svelte";
-import { appendBlock, deleteBlock } from "./api";
+import { appendBlock, deleteBlock, setBlockAttrs } from "./api";
 
 const STORAGE_NAME = "menu-config";
 const zeroWhite = "​"
@@ -99,8 +99,14 @@ function addMemoItem(protyle:IProtyle){
 async function addMemoBlock(protyle:IProtyle){
     const DocumentId = protyle.block.id
     let pureContent = protyle.toolbar.range.toString()
-    let back = await appendBlock("markdown",`>> ${pureContent}\n>\n>${zeroWhite}`,DocumentId)
+    let back = await appendBlock("markdown",`{{{row
+> ${pureContent}
+
+${zeroWhite}
+
+}}}`,DocumentId)
     let newBlockId = back[0].doOperations[0].id
+    setBlockAttrs(newBlockId,{"custom-plugin-memo-date":getTime()})
     
     const {x,y} = protyle.toolbar.range.getClientRects()[0]
     protyle.toolbar.setInlineMark(protyle, "clear", "toolbar");
@@ -133,3 +139,19 @@ export function saveViaTransaction(protyleElem) {
     e.initEvent('input', true, false)
     protyle.dispatchEvent(e)
   }
+
+function getTime() {
+    const date = new Date();
+
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+
+    const formatted = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')} ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+    return formatted
+}
