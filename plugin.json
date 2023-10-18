@@ -2,7 +2,7 @@
   "name": "siyuan-plugin-memo",
   "author": "zxhd863943427",
   "url": "https://github.com/zxhd863943427/siyuan-plugin-memo",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "minAppVersion": "2.9.5",
   "backends": ["all"],
   "frontends": ["all"],
