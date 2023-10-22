@@ -3,7 +3,8 @@ import {
     showMessage,
     Dialog,
     getFrontend,
-    getBackend
+    getBackend,
+    Protyle
 } from "siyuan";
 import "@/index.scss";
 
@@ -30,6 +31,14 @@ export default class PluginMemo extends Plugin {
         console.log(this.i18n.helloPlugin);
         this.eventBus.on("loaded-protyle",this.memoMain)
         this.eventBus.on("open-menu-blockref",this.deleteMemo)
+        this.addCommand({
+            langKey:"addMemo",
+            hotkey:"",
+            langText:"add memo",
+            editorCallback:(protyle:any)=>{
+                addMemoBlock(protyle)
+            }
+        })
     }
 
     onLayoutReady() {
